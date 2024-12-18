@@ -38,6 +38,11 @@ const CodePanel: React.FC = () => {
     setTerraformCode(''); // Clear Terraform code
   };
 
+  const handleDeployClick = () => {
+    // Simple alert for deployment error
+    alert('Your code cannot be deployed because you have not connected your AWS credentials.');
+  };
+
   return (
     <div className="h-full bg-gray-900 p-4 text-white overflow-auto">
       <div className="flex justify-between items-center mb-4">
@@ -66,6 +71,16 @@ const CodePanel: React.FC = () => {
           {terraformCode || 'No Terraform code generated yet. Enter a prompt and click Generate.'}
         </code>
       </pre>
+
+      {/* Deploy button */}
+      <div className="mt-4">
+        <button
+          onClick={handleDeployClick}
+          className="w-full px-4 py-2 text-sm bg-green-500 rounded hover:bg-green-600"
+        >
+          Deploy
+        </button>
+      </div>
     </div>
   );
 };
